@@ -14,25 +14,38 @@ export default function countryList(state=initialNameState, action){
             }
         case ADD_TO_RIGHT:
             let duplicateArray = [...state.rightList];
+            let duplicateArrayLeft = [...state.leftList];
             if(duplicateArray[action.index] !== undefined){
-                duplicateArray[action.index].names.push(action.name);
+                    let myobj = {
+                        name: action.name,
+                        checked: true,
+                    }
+                    duplicateArray[action.index].names.push(myobj);  
             }
             else{
                 duplicateArray[action.index] = {
                     Title: action.country,
-                    names: [action.name]
+                    names: [{
+                        name: action.name,
+                        checked: true,
+                    }]
                 };
             }
+
+            let leftIndex = duplicateArrayLeft[action.index].names.findIndex((name) => name.name === action.name);
+            duplicateArrayLeft[action.index].names[leftIndex].checked = true;
             return{
                 ...state,
                 rightList: duplicateArray,
+                leftList: duplicateArrayLeft,
             }
 
         case REMOVE_FROM_RIGHT: 
             let copiedArray = [...state.rightList];
+            let copiedArrayLeft = [...state.leftList];
             let namesArray = copiedArray[action.index].names;
             const filteredArray = namesArray.filter(
-                   name => name !== action.name 
+                   name => name.name !== action.name 
             );
             if(filteredArray.length !== 0){
                 copiedArray[action.index] = {
@@ -44,9 +57,13 @@ export default function countryList(state=initialNameState, action){
                     names: filteredArray
                 }
             }
+
+            let leftindx = copiedArrayLeft[action.index].names.findIndex((name) => name.name === action.name);
+            copiedArrayLeft[action.index].names[leftindx].checked = false;
             return{
                 ...state,
                 rightList: copiedArray,
+                leftList: copiedArrayLeft,
             }
         default: 
             return state;

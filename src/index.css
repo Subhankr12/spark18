@@ -50,3 +50,6 @@ code {
   border: 1px solid black;
   cursor: pointer;
 }
+.checked::before {
+  background-color: limegreen;
+}

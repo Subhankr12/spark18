@@ -14,8 +14,8 @@ export default class LeftColumn extends React.Component{
                 <div className="wrapper" key={index}>
                     <h4 className="title">{item.Title}</h4>
                     {item.names.map((name) => 
-                        <a className="name" onClick={() => this.onNameClick(name, index, item.Title)}>
-                            <h5>{name}</h5>
+                        <a className={name.checked ? 'checked name' : 'name'} onClick={() => this.onNameClick(name.name, index, item.Title)}>
+                            <h5>{name.name}</h5>
                         </a>
                     )}
                 </div>

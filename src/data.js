@@ -1,14 +1,53 @@
 export const data = [
     {
         Title: 'Portugal',
-        names: ['Aasiya Jayavant', 'Luvleen Lawrence','Rey Milbourne','Cayla Blister']
+        names: [
+            {
+                name: 'Aasiya Jayavant',
+                checked: false
+            },
+            {
+                name: 'Luvleen Lawrence',
+                checked: false
+            },
+            {
+                name: 'Rey Milbourne',
+                checked: false
+            },
+            {
+                name: 'Cayla Blister',
+                checked: false
+            }
+        ]
     },
     {
         Title: 'Nicaragua',
-        names: ['Devidas Nandee','Obasey Chidy','Xenie']
+        names: [
+            {
+                name: 'Devidas Nandee',
+                checked: false
+            },
+            {
+                name: 'Obasey Chidy',
+                checked: false
+            },
+            {
+                name: 'Xenie',
+                checked: false            
+            }
+        ]
     },
     {
         Title: 'Marshal Islands',
-        names: ['Aaron Almaraz','Jelena Demisova']
+        names: [
+            {
+                name: 'Aaron Almaraz',
+                checked: false
+            },
+            {
+                name: 'Jelena Demisova',
+                checked: false
+            }
+        ]
     }
 ]

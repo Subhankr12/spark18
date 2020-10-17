@@ -17,8 +17,8 @@ export default class App extends React.Component {
     const { leftList, rightList } = this.props.store.getState();
     return (
       <div className="App">
-        <LeftColumn data={leftList}/>
-        <RightColumn data={rightList}/>
+        <LeftColumn data={leftList} dispatch={this.props.store.dispatch}/>
+        <RightColumn data={rightList} dispatch={this.props.store.dispatch}/>
       </div>
     )
   }

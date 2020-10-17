@@ -35,6 +35,7 @@ code {
   font-size: 1em;
   color: darkslategray;
   display: block;
+  cursor: pointer;
 }
 .name h5 {
   font-weight: 400;

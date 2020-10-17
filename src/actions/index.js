@@ -9,16 +9,21 @@ export function addList (names){
         names
     }
 }
-export function addToRight(name){
+export function addToRight(name,index, country){
     return {
         type: ADD_TO_RIGHT,
-        name
+        name,
+        country,
+        index, 
+        
     }
 }
 
-export function removeFromRight(name){
+export function removeFromRight(name, index, country){
     return {
         type: REMOVE_FROM_RIGHT,
-        name
+        name,
+        country,
+        index
     }
 }

@@ -1,8 +1,9 @@
 import React from 'react';
+import { removeFromRight } from '../actions';
 
 export default class LeftColumn extends React.Component{
-    onNameClick = (index) => {
-        console.log(index + ' clicked');
+    onNameClick = (name, index, title) => {
+        this.props.dispatch(removeFromRight(name, index, title));
     }
 
    render(){
@@ -12,9 +13,9 @@ export default class LeftColumn extends React.Component{
             {data.map((item, index) => 
                 <div className="wrapper" key={index}>
                     <h4 className="title">{item.Title}</h4>
-                    {item.names.map((name, index) => 
-                        <a className="name" key={index} onClick={(name) => this.onNameClick(name)}>
-                            <h5>{name.name}</h5>
+                    {item.names.map((name) => 
+                        <a className="name" onClick={() => this.onNameClick(name, index, item.Title)}>
+                            <h5>{name}</h5>
                         </a>
                     )}
                 </div>

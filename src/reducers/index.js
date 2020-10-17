@@ -15,21 +15,22 @@ export default function countryList(state=initialNameState, action){
         case ADD_TO_RIGHT:
             let duplicateArray = [...state.rightList];
             let duplicateArrayLeft = [...state.leftList];
-            if(duplicateArray[action.index] !== undefined){
-                    let myobj = {
-                        name: action.name,
-                        checked: true,
-                    }
-                    duplicateArray[action.index].names.push(myobj);  
+            console.log(duplicateArray[action.index]);
+            if(duplicateArray[action.index] === undefined || duplicateArray[action.index].names.length === 0){  
+                    duplicateArray[action.index] = {
+                        Title: action.country,
+                        names: [{
+                            name: action.name,
+                            checked: true,
+                        }]
+                    };
             }
             else{
-                duplicateArray[action.index] = {
-                    Title: action.country,
-                    names: [{
-                        name: action.name,
-                        checked: true,
-                    }]
-                };
+                let myobj = {
+                    name: action.name,
+                    checked: true,
+                }
+                duplicateArray[action.index].names.push(myobj);
             }
 
             let leftIndex = duplicateArrayLeft[action.index].names.findIndex((name) => name.name === action.name);
